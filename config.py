@@ -24,7 +24,7 @@ PLAN_LIMITS = {
 }
 
 # ── Database ──
-DB_PATH = os.path.join(os.path.dirname(__file__), "geo_analyzer.db")
+DB_PATH = os.environ.get("DB_PATH", os.path.join(os.path.dirname(__file__), "geo_analyzer.db"))
 
 # ── Analysis Defaults ──
 DEFAULT_TIMEOUT = 30
