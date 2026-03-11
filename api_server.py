@@ -9,18 +9,15 @@ import uuid
 from contextlib import asynccontextmanager
 from datetime import datetime
 
-from fastapi import FastAPI, HTTPException, Request, Depends
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 
 from config import API_KEYS, PLAN_LIMITS
 from db import init_db, get_db
-from auth import (
-    hash_password, verify_password, create_token, get_current_user,
-    check_usage_limit, log_usage,
-)
-from models import RegisterPayload, LoginPayload, GeoAnalyzeRequest
+from auth import log_usage
+from models import GeoAnalyzeRequest
 
 from discovery.fetcher import fetch_page
 from discovery.business_detector import detect_business_type
@@ -62,45 +59,6 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 _analyses = {}
 
 
-# ════════════════════════════════════════════════════════════════
-#  AUTH ENDPOINTS
-# ════════════════════════════════════════════════════════════════
-
-@app.post("/api/register")
-async def register(payload: RegisterPayload):
-    db = get_db()
-    existing = db.execute("SELECT id FROM users WHERE email = ?", (payload.email,)).fetchone()
-    if existing:
-        db.close()
-        raise HTTPException(400, "Email already registered")
-    pw_hash = hash_password(payload.password)
-    cursor = db.execute(
-        "INSERT INTO users (email, password_hash) VALUES (?, ?)",
-        (payload.email, pw_hash),
-    )
-    db.commit()
-    user_id = cursor.lastrowid
-    db.close()
-    token = create_token(user_id, payload.email)
-    return {"token": token, "user_id": user_id, "email": payload.email}
-
-
-@app.post("/api/login")
-async def login(payload: LoginPayload):
-    db = get_db()
-    user = db.execute("SELECT * FROM users WHERE email = ?", (payload.email,)).fetchone()
-    db.close()
-    if not user or not verify_password(payload.password, user["password_hash"]):
-        raise HTTPException(401, "Invalid email or password")
-    token = create_token(user["id"], user["email"])
-    return {"token": token, "user_id": user["id"], "email": user["email"], "plan": user["plan"]}
-
-
-@app.get("/api/me")
-async def me(user: dict = Depends(get_current_user)):
-    return {"email": user["email"], "plan": user["plan"], "id": user["id"]}
-
-
 @app.get("/api/health")
 async def health():
     has_keys = {k: bool(v) for k, v in API_KEYS.items()}
@@ -112,22 +70,19 @@ async def health():
 # ════════════════════════════════════════════════════════════════
 
 @app.post("/api/geo/analyze")
-async def start_analysis(payload: GeoAnalyzeRequest, user: dict = Depends(get_current_user)):
-    if not check_usage_limit(user):
-        raise HTTPException(429, "Daily analysis limit reached. Upgrade your plan for more.")
-
+async def start_analysis(payload: GeoAnalyzeRequest):
     analysis_id = str(uuid.uuid4())
 
     # Store in DB
     db = get_db()
     db.execute(
         "INSERT INTO geo_analyses (id, user_id, url, brand_name, status) VALUES (?, ?, ?, ?, 'running')",
-        (analysis_id, user["id"], payload.url, payload.brand_name),
+        (analysis_id, 0, payload.url, payload.brand_name),
     )
     db.commit()
     db.close()
 
-    log_usage(user["id"], "geo_analyze", payload.url)
+    log_usage(0, "geo_analyze", payload.url)
 
     # Track progress in memory
     _analyses[analysis_id] = {"status": "running", "progress": {}}
@@ -301,7 +256,7 @@ def _save_analysis(analysis_id: str, status: str, result: dict, error: str = Non
 
 
 @app.get("/api/geo/status/{analysis_id}")
-async def get_status(analysis_id: str, user: dict = Depends(get_current_user)):
+async def get_status(analysis_id: str):
     # Check in-memory first
     if analysis_id in _analyses:
         data = _analyses[analysis_id]
@@ -314,8 +269,8 @@ async def get_status(analysis_id: str, user: dict = Depends(get_current_user)):
 
     # Fall back to DB
     db = get_db()
-    row = db.execute("SELECT * FROM geo_analyses WHERE id = ? AND user_id = ?",
-                     (analysis_id, user["id"])).fetchone()
+    row = db.execute("SELECT * FROM geo_analyses WHERE id = ?",
+                     (analysis_id,)).fetchone()
     db.close()
     if not row:
         raise HTTPException(404, "Analysis not found")
@@ -330,15 +285,15 @@ async def get_status(analysis_id: str, user: dict = Depends(get_current_user)):
 
 
 @app.get("/api/geo/result/{analysis_id}")
-async def get_result(analysis_id: str, user: dict = Depends(get_current_user)):
+async def get_result(analysis_id: str):
     # Check in-memory
     if analysis_id in _analyses and _analyses[analysis_id]["status"] == "complete":
         return _analyses[analysis_id]["result"]
 
     # Fall back to DB
     db = get_db()
-    row = db.execute("SELECT * FROM geo_analyses WHERE id = ? AND user_id = ?",
-                     (analysis_id, user["id"])).fetchone()
+    row = db.execute("SELECT * FROM geo_analyses WHERE id = ?",
+                     (analysis_id,)).fetchone()
     db.close()
     if not row:
         raise HTTPException(404, "Analysis not found")
@@ -352,16 +307,16 @@ async def get_result(analysis_id: str, user: dict = Depends(get_current_user)):
 
 
 @app.get("/api/geo/report/{analysis_id}/md")
-async def get_markdown_report(analysis_id: str, user: dict = Depends(get_current_user)):
-    result = await get_result(analysis_id, user)
+async def get_markdown_report(analysis_id: str):
+    result = await get_result(analysis_id)
     md = generate_markdown_report(result)
     return PlainTextResponse(md, media_type="text/markdown",
                              headers={"Content-Disposition": f"attachment; filename=geo-report-{analysis_id[:8]}.md"})
 
 
 @app.get("/api/geo/report/{analysis_id}/pdf")
-async def get_pdf_report(analysis_id: str, user: dict = Depends(get_current_user)):
-    result = await get_result(analysis_id, user)
+async def get_pdf_report(analysis_id: str):
+    result = await get_result(analysis_id)
     import tempfile
     from reports.pdf_report import generate_report
 
@@ -374,12 +329,11 @@ async def get_pdf_report(analysis_id: str, user: dict = Depends(get_current_user
 
 
 @app.get("/api/geo/history")
-async def get_history(user: dict = Depends(get_current_user)):
+async def get_history():
     db = get_db()
     rows = db.execute(
         "SELECT id, url, brand_name, business_type, status, geo_score, created_at, completed_at "
-        "FROM geo_analyses WHERE user_id = ? ORDER BY created_at DESC LIMIT 50",
-        (user["id"],),
+        "FROM geo_analyses ORDER BY created_at DESC LIMIT 50",
     ).fetchall()
     db.close()
     return [dict(r) for r in rows]
@@ -387,7 +341,7 @@ async def get_history(user: dict = Depends(get_current_user)):
 
 # ── Entity resolution endpoint (from EntityOS) ──
 @app.post("/api/entity/resolve")
-async def entity_resolve(request: Request, user: dict = Depends(get_current_user)):
+async def entity_resolve(request: Request):
     body = await request.json()
     query = body.get("query", "")
     website = body.get("website", "")

@@ -1,53 +1,18 @@
 /* GEO Analyzer — Single Page Application */
 
 const API = '';
-let token = localStorage.getItem('geo_token');
-let currentUser = null;
 let pollInterval = null;
 
 // ── API Helpers ──
 
 async function api(path, opts = {}) {
     const headers = { 'Content-Type': 'application/json', ...(opts.headers || {}) };
-    if (token) headers['Authorization'] = `Bearer ${token}`;
     const res = await fetch(`${API}${path}`, { ...opts, headers });
-    if (res.status === 401) { logout(); throw new Error('Unauthorized'); }
     if (!res.ok) {
         const err = await res.json().catch(() => ({ detail: res.statusText }));
         throw new Error(err.detail || err.message || 'API error');
     }
     return res.json();
-}
-
-// ── Auth ──
-
-function logout() {
-    token = null;
-    currentUser = null;
-    localStorage.removeItem('geo_token');
-    render();
-}
-
-async function handleLogin(email, password) {
-    const data = await api('/api/login', {
-        method: 'POST',
-        body: JSON.stringify({ email, password }),
-    });
-    token = data.token;
-    localStorage.setItem('geo_token', token);
-    currentUser = data;
-    render();
-}
-
-async function handleRegister(email, password) {
-    const data = await api('/api/register', {
-        method: 'POST',
-        body: JSON.stringify({ email, password }),
-    });
-    token = data.token;
-    localStorage.setItem('geo_token', token);
-    currentUser = data;
-    render();
 }
 
 // ── Score Helpers ──
@@ -78,19 +43,7 @@ function scoreLabel(score) {
 
 function render() {
     const nav = document.getElementById('nav-right');
-    const main = document.getElementById('main-content');
-
-    if (!token) {
-        nav.innerHTML = '';
-        main.innerHTML = renderAuth();
-        bindAuth();
-        return;
-    }
-
-    nav.innerHTML = `
-        <span id="user-email">${currentUser?.email || ''}</span>
-        <button onclick="logout()">Logout</button>
-    `;
+    nav.innerHTML = '';
 
     // Check hash route
     const hash = window.location.hash;
@@ -105,71 +58,10 @@ function render() {
     }
 }
 
-// ── Auth View ──
-
-function renderAuth() {
-    return `
-        <div class="auth-container">
-            <h2>GEO Analyzer</h2>
-            <div class="tabs">
-                <div class="tab active" data-tab="login">Login</div>
-                <div class="tab" data-tab="register">Register</div>
-            </div>
-            <form id="auth-form">
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="auth-email" required>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="auth-password" required minlength="6">
-                </div>
-                <button type="submit" class="btn btn-primary" id="auth-btn">Login</button>
-                <div class="error-msg hidden" id="auth-error"></div>
-            </form>
-        </div>
-    `;
-}
-
-function bindAuth() {
-    let mode = 'login';
-    document.querySelectorAll('.tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            mode = tab.dataset.tab;
-            document.getElementById('auth-btn').textContent = mode === 'login' ? 'Login' : 'Register';
-        });
-    });
-
-    document.getElementById('auth-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const email = document.getElementById('auth-email').value;
-        const password = document.getElementById('auth-password').value;
-        const errEl = document.getElementById('auth-error');
-        errEl.classList.add('hidden');
-        try {
-            if (mode === 'login') await handleLogin(email, password);
-            else await handleRegister(email, password);
-        } catch (err) {
-            errEl.textContent = err.message;
-            errEl.classList.remove('hidden');
-        }
-    });
-}
-
 // ── Dashboard View ──
 
 async function showDashboard() {
     const main = document.getElementById('main-content');
-
-    // Load user info if needed
-    if (!currentUser?.email) {
-        try {
-            currentUser = await api('/api/me');
-            document.getElementById('user-email').textContent = currentUser.email;
-        } catch { /* ignore */ }
-    }
 
     main.innerHTML = `
         <div class="dashboard-header">
