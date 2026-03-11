@@ -1,0 +1,3698 @@
+[
+  {
+    "index": 1,
+    "name": "Topical Authority",
+    "id": "topical_authority",
+    "definition": "Evaluates whether an entity has deep, consistent expertise in its claimed subject area. Diluted authority from covering too many topics weakens ranking potential. Google's classifiers weigh topic consistency across domain name, content, reviews, and brand signals. When an entity's identity is split across verticals, each vertical receives less authority than a specialist competitor.",
+    "appears_in": [
+      "EntityOS",
+      "DiagnosticOS",
+      "DriftOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "service weighting",
+      "site focus",
+      "core topic clustering",
+      "niche entity categorization"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 2,
+    "name": "Knowledge Graph Entity Mapping",
+    "id": "knowledge_graph",
+    "definition": "Maps entities to the broader web of trusted organizations, certifications, and industry associations. Schema.org markup, sameAs links, and consistent cross-references between an entity and known organizations allow Google to confidently place the entity within its Knowledge Graph, increasing trust and visibility.",
+    "appears_in": [
+      "DriftOS",
+      "BacklinkOS",
+      "CredentialOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "related entity mapping"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 3,
+    "name": "Brand Signal Strength",
+    "id": "brand_authority",
+    "definition": "Measures branded search volume and recognition. Entities with strong, growing brand demand receive algorithmic preference and benefit-of-the-doubt in ranking. Weak branded search volume means the site must compete purely on page-level signals without the trust boost that established brands receive.",
+    "appears_in": [
+      "DiagnosticOS",
+      "EntityOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "brand bias",
+      "branded search",
+      "brand demand"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 4,
+    "name": "Entity Association Strength",
+    "id": "entity_association",
+    "definition": "Measures how strongly an entity is connected to other recognized entities in its industry. Without explicit mentions and structured data linking to certifying bodies or manufacturer partner pages, Google's Knowledge Graph cannot confidently connect an entity to the broader web of trusted organizations.",
+    "appears_in": [
+      "DriftOS",
+      "BacklinkOS",
+      "CredentialOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "industry standing",
+      "peer validation"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 5,
+    "name": "Entity Coherence",
+    "id": "entity_coherence",
+    "definition": "Measures whether the content presents a consistent business identity with verifiable name, address, certifications, associations, and service history. Generic business descriptions that could be any company score low.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "identity consistency",
+      "verifiable identity signals"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 6,
+    "name": "Keyword Cannibalization",
+    "id": "keyword_cannibalization",
+    "definition": "Detects multiple pages on the same site competing for the same search intent, diluting ranking power and confusing Google about which page to rank.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "intent overlap",
+      "internal competition"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 7,
+    "name": "Broken Entity Trust",
+    "id": "broken_entity_trust",
+    "definition": "Identifies inconsistencies between business claims on the page and external signals such as directory listings, reviews, GBP data, or licensing records.",
+    "appears_in": [
+      "EntityOS",
+      "CredentialOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "trust inconsistency",
+      "claim mismatch",
+      "inconsistent NAP"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 8,
+    "name": "Knowledge Graph Alignment",
+    "id": "knowledge_graph_alignment",
+    "definition": "Measures how strongly the entity appears in Google's structured knowledge sources and whether page content aligns with Knowledge Graph data, checked via search signals.",
+    "appears_in": [
+      "EntityOS",
+      "DriftOS",
+      "CredentialOS"
+    ],
+    "also_known_as": [
+      "KG presence",
+      "entity graph alignment"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 9,
+    "name": "Entity Reinforcement",
+    "id": "entity_reinforcement",
+    "definition": "Measures how consistently the entity's identity (name, services, expertise) is reinforced across all pages. Strong reinforcement helps search engines build a confident entity model.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "entity coherence",
+      "entity anchor",
+      "brand consistency"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 10,
+    "name": "Brand Voice Dilution",
+    "id": "brand_voice_dilution",
+    "definition": "Detects when content across a site lacks consistent brand voice, often due to multiple content creators, outsourced writing, or AI-generated content mixed with human-written pages.",
+    "appears_in": [
+      "EntityOS",
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "voice inconsistency",
+      "tone fragmentation"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 11,
+    "name": "Service Dilution Drift",
+    "id": "service_dilution_drift",
+    "definition": "Detects when secondary services overshadow high-value offerings, causing the entity to be viewed as a 'generalist' rather than a 'specialist' for premium services by topical authority classifiers.",
+    "appears_in": [
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "specialization loss",
+      "generalist perception"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 12,
+    "name": "Entity Association Weakness",
+    "id": "entity_association_weakness",
+    "definition": "Identifies missing schema links to certifying bodies, industry associations, or known entities. Without these, Google cannot verify professional pedigree beyond self-claims.",
+    "appears_in": [
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "missing associations",
+      "unlinked credentials"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 13,
+    "name": "Cross-Service Cannibalization",
+    "id": "cross_service_cannibalization",
+    "definition": "Identifies duplicate or highly similar copy across related service pages, causing internal competition that dilutes individual page ranking power through the scaled content classifier.",
+    "appears_in": [
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "internal competition",
+      "service page duplication"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 14,
+    "name": "Brand vs Commodity Ratio",
+    "id": "brand_vs_commodity_ratio",
+    "definition": "Measures branded search volume against generic service searches. A low brand ratio means commodity status, making the entity vulnerable to algorithm updates that favor established brands.",
+    "appears_in": [
+      "DriftOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "brand demand gap",
+      "commodity risk"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 15,
+    "name": "Specialization Drift",
+    "id": "specialization_drift",
+    "definition": "Detects lumping distinct service categories together in site structure and internal linking, causing failure to capture premium market segments due to generalist perception by niche entity classifiers.",
+    "appears_in": [
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "category blur",
+      "niche abandonment"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 16,
+    "name": "Entity Recognition Strength",
+    "id": "entity_recognition_strength",
+    "definition": "Evaluates whether Google recognizes the linking source as a defined entity with Knowledge Graph presence, rather than an anonymous domain.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "source entity status",
+      "KG recognition"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 17,
+    "name": "Primary Niche Match",
+    "id": "primary_niche_match",
+    "definition": "Evaluates whether the source and target domains operate in the same or adjacent industry niches. Links from topically relevant sources transfer more authority.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "niche alignment",
+      "industry relevance"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 18,
+    "name": "Semantic Keyword Overlap",
+    "id": "semantic_keyword_overlap",
+    "definition": "Measures what keywords both the source and target sites share, indicating topical alignment and relevance of the link relationship.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "keyword alignment",
+      "topical overlap"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 19,
+    "name": "Entity Co-occurrence",
+    "id": "entity_co_occurrence",
+    "definition": "Checks whether both the source and target entities appear together in search results, indicating Google already associates the two entities.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "SERP co-citation",
+      "entity pairing"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 20,
+    "name": "Audience Overlap Probability",
+    "id": "audience_overlap_probability",
+    "definition": "Estimates whether the source site's audience would be interested in the target site's content. High overlap indicates a natural, valuable link relationship.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "audience alignment",
+      "reader relevance"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 21,
+    "name": "Knowledge Graph Proximity",
+    "id": "knowledge_graph_proximity",
+    "definition": "Evaluates whether the source and target entities are connected or closely related in Google's Knowledge Graph, indicating a natural entity relationship.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "KG connection",
+      "entity graph distance"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 22,
+    "name": "Entity Node Reinforcement",
+    "id": "entity_node_reinforcement",
+    "definition": "Measures whether this link validates the target's entity identity by connecting it to a recognized source in the same or related domain.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "identity validation",
+      "entity graph reinforcement"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 23,
+    "name": "Category Drift",
+    "id": "category_drift",
+    "definition": "Detects content spanning unrelated verticals, service offerings outside core expertise, and sudden pivots to trending topics. Expanding beyond the core category weakens topical authority and fragments accumulated trust signals.",
+    "appears_in": [
+      "DiagnosticOS",
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "topic dilution",
+      "vertical creep",
+      "niche abandonment"
+    ],
+    "category": "Identity & Entity Foundations",
+    "category_index": 1,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 24,
+    "name": "Local Prominence & Proximity",
+    "id": "local_prominence",
+    "definition": "Evaluates an entity's authority within specific geographic areas. Prominence decays with distance from the entity's verified location. Without localized content, geotagged project evidence, and location-specific reviews, an entity's geographic authority drops sharply outside its primary market.",
+    "appears_in": [
+      "EntityOS",
+      "DriftOS",
+      "PageOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "proximity sensors",
+      "distance sensors"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 25,
+    "name": "Geographic Authority",
+    "id": "geographic_authority",
+    "definition": "Measures an entity's proven service presence in claimed geographic areas. Service area claims without location-specific proof result in geographic ghosting. Entities claiming broad service areas need localized landing pages, project galleries with geotagged content, and city-specific reviews.",
+    "appears_in": [
+      "EntityOS",
+      "DriftOS",
+      "PageOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "geographic ghosting",
+      "service area"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 26,
+    "name": "Neighborhood Granularity",
+    "id": "neighborhood_granularity",
+    "definition": "Measures the specificity of local references such as neighborhoods, streets, landmarks, or districts on the page. References to specific micro-areas rather than just city names strengthen local entity grounding.",
+    "appears_in": [
+      "PageOS",
+      "EntityOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "local specificity",
+      "micro-area references"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 27,
+    "name": "Local Benchmark Data",
+    "id": "local_benchmark_data",
+    "definition": "Detects the presence of local statistics, pricing benchmarks, regional context, or market-specific data on the page that demonstrates genuine local knowledge.",
+    "appears_in": [
+      "PageOS",
+      "EntityOS"
+    ],
+    "also_known_as": [
+      "regional data",
+      "local pricing",
+      "local market data"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 28,
+    "name": "Hyper-Local Landmarks",
+    "id": "hyper_local_landmarks",
+    "definition": "Detects references to recognizable local places such as parks, intersections, venues, or natural features on the page that anchor the entity to its geography.",
+    "appears_in": [
+      "PageOS",
+      "EntityOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "landmark references",
+      "geographic markers"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 29,
+    "name": "Service Radius Mapping",
+    "id": "service_radius_mapping",
+    "definition": "Measures whether the site defines a realistic and coherent geographic service area with clear boundaries, rather than claiming an unrealistically large coverage zone.",
+    "appears_in": [
+      "EntityOS",
+      "GBPOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "coverage area",
+      "service boundaries"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 30,
+    "name": "Community Involvement",
+    "id": "community_involvement",
+    "definition": "Detects mentions of local sponsorships, events, charities, or partnerships that demonstrate the entity is an active participant in its local community.",
+    "appears_in": [
+      "EntityOS",
+      "DriftOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "local engagement",
+      "community presence"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 31,
+    "name": "Physical Presence Signals",
+    "id": "physical_presence_signals",
+    "definition": "Evaluates whether the business address, phone, map, and operational footprint are verifiable on the page and consistent across directory listings found via search.",
+    "appears_in": [
+      "EntityOS",
+      "GBPOS",
+      "CredentialOS"
+    ],
+    "also_known_as": [
+      "NAP consistency",
+      "address verification"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 32,
+    "name": "Staff Bio Localization",
+    "id": "staff_bio_localization",
+    "definition": "Measures whether team members are tied to the local region through bios, profiles, or references that demonstrate they live and work in the area.",
+    "appears_in": [
+      "PageOS",
+      "EntityOS"
+    ],
+    "also_known_as": [
+      "team localization",
+      "employee geographic ties"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 33,
+    "name": "Regional Competitor Context",
+    "id": "regional_competitor_context",
+    "definition": "Detects whether the content acknowledges or compares with specific local competitors, demonstrating awareness of the actual competitive landscape.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "competitive awareness",
+      "market positioning"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 34,
+    "name": "Phone Area Code Verification",
+    "id": "phone_area_code_verification",
+    "definition": "Checks whether the phone number on the page corresponds with the geographic region being targeted. A mismatched area code undermines local trust signals.",
+    "appears_in": [
+      "EntityOS",
+      "GBPOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "area code match",
+      "phone verification"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 35,
+    "name": "Neighborhood Review Clustering",
+    "id": "neighborhood_review_clustering",
+    "definition": "Analyzes whether reviews reference specific neighborhoods, communities, or local details that confirm the entity actually operates in its claimed area.",
+    "appears_in": [
+      "EntityOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "review localization",
+      "geographic review patterns"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 36,
+    "name": "Site Reputation Proximity",
+    "id": "site_reputation_proximity",
+    "definition": "Evaluates whether the domain is associated with known spam or low-quality domains via search signals. Proximity to bad neighborhoods in the link graph damages trust.",
+    "appears_in": [
+      "BacklinkOS",
+      "EntityOS"
+    ],
+    "also_known_as": [
+      "domain reputation",
+      "association credibility"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 37,
+    "name": "City Modifier Legitimacy",
+    "id": "city_modifier_legitimacy",
+    "definition": "Evaluates whether city-specific pages contain legitimate, unique local content or are just template pages with the city name swapped in. Illegitimate city modifiers trigger doorway page detection.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "location page quality",
+      "geo-modifier abuse"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 38,
+    "name": "Local Embedding",
+    "id": "local_embedding",
+    "definition": "Measures how strongly the business is positioned within the local community through citations, directory listings, local media mentions, and community participation signals.",
+    "appears_in": [
+      "EntityOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "community integration",
+      "local presence depth"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 39,
+    "name": "Geographic Ghosting",
+    "id": "geographic_ghosting",
+    "definition": "Identifies attempts to rank outside the core service radius without local entity proof. The core location anchor fails to stretch, and visibility drops at the county or city line.",
+    "appears_in": [
+      "DriftOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "geo expansion failure",
+      "service area overreach"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 40,
+    "name": "Primary Category Accuracy",
+    "id": "primary_category_accuracy",
+    "definition": "Evaluates whether the declared GBP primary category accurately matches the entity's main service. Miscategorization or multi-trade complexity can create profile dilution risk across primary query signals.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "GBP category",
+      "profile categorization"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 41,
+    "name": "Semantic Bio Match",
+    "id": "semantic_bio_match",
+    "definition": "Evaluates whether the business description in the GBP profile semantically matches the actual services offered and the entity's website content.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "profile description alignment",
+      "bio accuracy"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 42,
+    "name": "Attribute Accuracy",
+    "id": "attribute_accuracy",
+    "definition": "Checks whether GBP attributes (hours, payment methods, accessibility, amenities) are accurately set and up to date. Incorrect attributes create trust inconsistencies.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "profile attributes",
+      "listing accuracy"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 43,
+    "name": "Centroid Proximity",
+    "id": "centroid_proximity",
+    "definition": "Evaluates how close the entity's verified address is to the geographic center of the target market. Distance from the search query centroid directly impacts local pack rankings.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "distance to searcher",
+      "location advantage"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 44,
+    "name": "Service Area Overlap",
+    "id": "service_area_overlap",
+    "definition": "Measures how much the entity's declared service area overlaps with competitor service areas and whether the coverage claims are realistic.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "coverage overlap",
+      "territory competition"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 45,
+    "name": "Neighborhood Hyperlocalism",
+    "id": "neighborhood_hyperlocalism",
+    "definition": "Evaluates whether the GBP listing and reviews contain neighborhood-level references that anchor the entity to specific micro-areas within its market.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "hyperlocal signals",
+      "micro-area presence"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 46,
+    "name": "Hyperlocal Backlinks",
+    "id": "hyperlocal_backlinks",
+    "definition": "Measures links from local organizations, chambers of commerce, local news, community sites, and neighborhood resources that anchor the entity to its geographic area.",
+    "appears_in": [
+      "GBPOS",
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "local citations",
+      "community links"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 47,
+    "name": "Entity Proximity Decay",
+    "id": "entity_proximity_decay",
+    "definition": "Detects attempts to rank far outside the core service radius without supporting local entity proof. Weak spatial grounding reduces eligibility for premium SERP features.",
+    "appears_in": [
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "geographic overreach",
+      "distance decay"
+    ],
+    "category": "Local & Spatial Grounding",
+    "category_index": 2,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 48,
+    "name": "Regulatory Compliance",
+    "id": "regulatory_compliance",
+    "definition": "Verifies that an entity holds required licenses, permits, and regulatory approvals for its claimed services. Cross-references claimed services against required regulatory credentials. Entities advertising regulated services without displaying verifiable license numbers face trust deficits.",
+    "appears_in": [
+      "CredentialOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "legal authority",
+      "financial trust",
+      "risk mitigation",
+      "safety authority",
+      "regulatory standing"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 49,
+    "name": "Technical Certifications",
+    "id": "technical_certifications",
+    "definition": "Evaluates industry-standard certifications and manufacturer authorizations. IICRC, NADCA, NATE, and similar credentials validate specialized competency. Verifiable third-party certifications provide independent proof of technical competency. The gap between claimed and proven expertise is a primary trust vulnerability.",
+    "appears_in": [
+      "CredentialOS",
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "technical competency",
+      "specialized knowledge"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 50,
+    "name": "Missing Privacy & Terms",
+    "id": "missing_privacy_terms",
+    "definition": "Checks for required legal and policy pages such as privacy policy or terms of service linked from the page. Missing legal pages signal a less trustworthy operation.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "policy gaps",
+      "legal compliance"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 51,
+    "name": "Credential Verifiability",
+    "id": "credential_verifiability",
+    "definition": "Evaluates whether certifications and licenses can be confirmed through external sources. Credentials that link to verification databases score higher than unverifiable badge images.",
+    "appears_in": [
+      "CredentialOS",
+      "EntityOS"
+    ],
+    "also_known_as": [
+      "license verification",
+      "credential proof"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 52,
+    "name": "Reputation Alignment",
+    "id": "reputation_alignment",
+    "definition": "Measures consistency between website claims and what external reviews, directories, and third-party sources say about the entity. Misalignment erodes trust.",
+    "appears_in": [
+      "EntityOS",
+      "GBPOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "claim-review consistency",
+      "reputation match"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 53,
+    "name": "Policy Transparency",
+    "id": "policy_transparency",
+    "definition": "Checks whether privacy policies, terms of service, and other business policies are clearly stated and accessible. Transparent policies signal a legitimate, trustworthy operation.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "legal clarity",
+      "policy visibility"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 54,
+    "name": "License Crosslinking",
+    "id": "license_crosslinking",
+    "definition": "Verifies that displayed credentials link to external verification sources such as state licensing board lookups or certification body databases, rather than just showing badge images.",
+    "appears_in": [
+      "CredentialOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "credential linking",
+      "verification links"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 55,
+    "name": "Grounded Claims",
+    "id": "grounded_claims",
+    "definition": "Specific business claims that ARE verified by external sources such as licensing databases, directory listings, review content, or search-discoverable evidence.",
+    "appears_in": [
+      "EntityOS",
+      "DiagnosticOS",
+      "CredentialOS"
+    ],
+    "also_known_as": [
+      "verified claims",
+      "evidence-backed statements"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 56,
+    "name": "Regulatory Licensing Status",
+    "id": "regulatory_licensing_status",
+    "definition": "Evaluates state and local licensing status by cross-referencing claims against actual regulatory body databases. Specific licenses required for the trade in the specific jurisdiction are identified and verified.",
+    "appears_in": [
+      "CredentialOS"
+    ],
+    "also_known_as": [
+      "license verification",
+      "state registration"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 57,
+    "name": "Bonding & Insurance",
+    "id": "bonding_and_insurance",
+    "definition": "Verifies surety bond status, liability coverage, and workers compensation insurance. Evaluates minimum coverage requirements for the trade and jurisdiction.",
+    "appears_in": [
+      "CredentialOS"
+    ],
+    "also_known_as": [
+      "insurance coverage",
+      "bond verification",
+      "liability proof"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 58,
+    "name": "Trade Association Membership",
+    "id": "trade_association_membership",
+    "definition": "Evaluates professional association affiliations at national, state, and local levels. BBB accreditation and industry-specific membership programs strengthen entity authority.",
+    "appears_in": [
+      "CredentialOS"
+    ],
+    "also_known_as": [
+      "professional memberships",
+      "association affiliations"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 59,
+    "name": "Operational Competency",
+    "id": "operational_competency",
+    "definition": "Measures permit history, fleet presence, staffing ratios, and response infrastructure as indicators of real operational capability beyond marketing claims.",
+    "appears_in": [
+      "CredentialOS"
+    ],
+    "also_known_as": [
+      "operational capacity",
+      "infrastructure proof"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 60,
+    "name": "Safety & Compliance",
+    "id": "safety_compliance",
+    "definition": "Evaluates safety records, OSHA compliance, environmental permits, and violation history from public records. Critical for trades with regulatory safety requirements.",
+    "appears_in": [
+      "CredentialOS"
+    ],
+    "also_known_as": [
+      "OSHA compliance",
+      "safety records"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 61,
+    "name": "Third-Party Validation",
+    "id": "third_party_validation",
+    "definition": "Measures award history, third-party audit results, and platform recognitions from Angi, HomeAdvisor, Nextdoor, or Yelp. Reviews that specifically mention credentials strengthen this signal.",
+    "appears_in": [
+      "CredentialOS"
+    ],
+    "also_known_as": [
+      "independent validation",
+      "platform awards"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 62,
+    "name": "Digital Credential Visibility",
+    "id": "digital_credential_visibility",
+    "definition": "Evaluates whether credentials are prominently displayed on the website with proper schema markup (hasCredential, certification structured data) and listed in the Google Business Profile.",
+    "appears_in": [
+      "CredentialOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "credential display",
+      "markup for credentials"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 63,
+    "name": "Verification Tier",
+    "id": "verification_tier",
+    "definition": "Evaluates the level of Google verification the business has achieved. Higher verification tiers (video, mail, phone) provide stronger trust signals.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "verification level",
+      "trust tier"
+    ],
+    "category": "Trust, Credentials & Legal",
+    "category_index": 3,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 64,
+    "name": "Helpful Content System",
+    "id": "helpful_content",
+    "definition": "Sitewide classifier that evaluates whether content is created primarily for users or for search engine rankings. Sales-focused content without genuine expertise triggers suppression. Measures the ratio of sales collateral to genuine expertise content. Sites built to convert traffic rather than educate or demonstrate unique experience receive a sitewide dampening signal that amplifies other suppressors.",
+    "appears_in": [
+      "DiagnosticOS",
+      "DriftOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "HCU",
+      "search-engine-first content",
+      "information vs. transactional intent balance"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 65,
+    "name": "E-E-A-T Experience Signals",
+    "id": "eeat_experience",
+    "definition": "Evaluates first-hand, demonstrable expertise through authentic content. Project photos, case studies, named experts, and real-world proof establish experience authority. Content is classified as having genuine experience when it includes unique visuals, named personnel, specific project details, and information that could only come from hands-on work. Generic or stock content fails this evaluation.",
+    "appears_in": [
+      "DiagnosticOS",
+      "DriftOS",
+      "PageOS",
+      "CredentialOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "experience",
+      "E-E-A-T",
+      "EEAT",
+      "computer vision analysis",
+      "operational maturity"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 66,
+    "name": "Information Gain",
+    "id": "information_gain",
+    "definition": "Measures whether a page adds new, useful information beyond what's already available in search results. Pages that merely restate common knowledge receive lower rankings. Compares content depth, technical precision, and unique data points against the existing corpus for a query. Pages with high information gain are rewarded; those with zero gain are treated as redundant.",
+    "appears_in": [
+      "DiagnosticOS",
+      "DriftOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "content depth",
+      "information gain / helpful content",
+      "hcu_information_gain"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 67,
+    "name": "Content Integrity & Decay",
+    "id": "content_integrity",
+    "definition": "Detects content that has become outdated, contradictory, or inconsistent over time. Compares content freshness indicators (last modified dates, copyright years, blog recency) against claims made on the page. Outdated content that contradicts current reality signals neglect and reduces confidence.",
+    "appears_in": [
+      "PageOS",
+      "DriftOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "content decay",
+      "content drift"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "static",
+    "method": "text_analysis"
+  },
+  {
+    "index": 68,
+    "name": "First-Party Evidence",
+    "id": "first_party_evidence",
+    "definition": "Evaluates whether content includes proof of real work such as before/after scenarios, specific project outcomes, named team members, and dated work examples. Stock descriptions with no case studies or project details score low.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "proof of real work",
+      "case studies",
+      "project documentation"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "static",
+    "method": "text_analysis"
+  },
+  {
+    "index": 69,
+    "name": "Information Density Ratio",
+    "id": "information_density_ratio",
+    "definition": "Evaluates how much of the page contains meaningful, useful information versus filler, padding, or generic text. A high ratio means most sentences carry real value. A low ratio indicates bloated content stuffed with marketing language.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "content ratio",
+      "signal to noise",
+      "useful information vs filler"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "static",
+    "method": "text_stats"
+  },
+  {
+    "index": 70,
+    "name": "Personal Experience Narrative",
+    "id": "personal_experience_narrative",
+    "definition": "Detects whether the content includes first-hand experience, storytelling, real operational insight, or author bios that demonstrate practitioner-level knowledge rather than secondhand research.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS",
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "first-hand experience",
+      "practitioner voice"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 71,
+    "name": "Sourcing Integrity",
+    "id": "sourcing_integrity",
+    "definition": "Evaluates whether referenced data sources are clearly cited and verifiable. Checks page content for citations, links to original sources, and properly attributed claims rather than unsupported assertions.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "citation quality",
+      "reference verification"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "static",
+    "method": "text_analysis"
+  },
+  {
+    "index": 72,
+    "name": "Primary Citation Quality",
+    "id": "primary_citation_quality",
+    "definition": "Measures whether the content cites original research, primary documents, or direct evidence rather than rehashing secondary sources. Original data, case studies, and proprietary research score high.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "original sources",
+      "primary evidence"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "static",
+    "method": "text_analysis"
+  },
+  {
+    "index": 73,
+    "name": "Comparative Utility",
+    "id": "comparative_utility",
+    "definition": "Measures whether the page helps users compare options, products, services, or approaches with specific pros and cons, rather than simply promoting one option.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "comparison value",
+      "decision support"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 74,
+    "name": "Niche Expertise Vocabulary",
+    "id": "niche_expertise_vocabulary",
+    "definition": "Detects the natural presence of specialized terminology specific to an industry. Genuine expertise uses jargon naturally in context, while surface-level content avoids it or uses it incorrectly.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "industry jargon",
+      "specialist language"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 75,
+    "name": "Cost Transparency",
+    "id": "cost_transparency",
+    "definition": "Evaluates whether pricing, cost frameworks, or cost breakdowns are explained on the page. Real pricing information visible on the page is a strong information gain signal.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "pricing clarity",
+      "cost information"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 76,
+    "name": "Case Study Granularity",
+    "id": "case_study_granularity",
+    "definition": "Measures whether detailed examples of real work or outcomes are presented with measurable results, specific project details, and concrete evidence rather than vague claims.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS",
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "project detail",
+      "outcome evidence"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 77,
+    "name": "Opinionated Stance",
+    "id": "opinionated_stance",
+    "definition": "Detects whether the content expresses a defensible viewpoint rather than neutral marketing copy. Authors who take positions and explain their reasoning demonstrate genuine expertise.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "editorial perspective",
+      "expert opinion"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 78,
+    "name": "Content Decay",
+    "id": "content_decay_veto",
+    "definition": "Detects outdated references, stale copyright years, old dates, or missing update indicators on the page. How outdated the content appears directly impacts trust and ranking eligibility.",
+    "appears_in": [
+      "PageOS",
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "stale content",
+      "outdated information"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 79,
+    "name": "Excessive CTA Saturation",
+    "id": "excessive_cta_saturation",
+    "definition": "Measures the density of calls to action relative to informational content. Too many CTAs overwhelming the content signals a page designed for conversion rather than value.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "CTA overload",
+      "conversion pressure"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 80,
+    "name": "Thin City Pages",
+    "id": "thin_city_pages",
+    "definition": "Identifies location pages with minimal unique information where only the city name is swapped. Template content patterns are detectable from page content structure and repeated blocks.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS",
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "doorway pages",
+      "template location pages"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 81,
+    "name": "Auto-Generated FAQ",
+    "id": "auto_generated_faq",
+    "definition": "Detects FAQ sections clearly produced by automated templates with generic, unhelpful questions that add no real value and are designed to inflate page content.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "templated FAQ",
+      "generic questions"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 82,
+    "name": "Obfuscated Pricing",
+    "id": "obfuscated_pricing",
+    "definition": "Detects intentional hiding of pricing to force user contact. Deliberately withholding pricing information that users expect creates friction and signals a less transparent operation.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "hidden pricing",
+      "price withholding"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 83,
+    "name": "First-Party Data Use",
+    "id": "first_party_data_use",
+    "definition": "Detects whether the site publishes proprietary data, original research, or unique datasets that cannot be found elsewhere. First-party data is a strong information gain signal.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "original data",
+      "proprietary research"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 84,
+    "name": "Topical Coverage",
+    "id": "topical_coverage",
+    "definition": "Evaluates the breadth and depth of content covering the entity's claimed areas of expertise. Comprehensive topic coverage signals genuine authority to classifiers.",
+    "appears_in": [
+      "EntityOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "content breadth",
+      "subject coverage"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 85,
+    "name": "Ungrounded Claims",
+    "id": "ungrounded_claims",
+    "definition": "Specific business claims that CANNOT be verified or lack supporting evidence from external sources. Self-claims without corroboration represent trust vulnerabilities.",
+    "appears_in": [
+      "EntityOS",
+      "DiagnosticOS",
+      "CredentialOS"
+    ],
+    "also_known_as": [
+      "unverified claims",
+      "unsupported statements"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 86,
+    "name": "Contradiction Detection",
+    "id": "contradiction_detection",
+    "definition": "Identifies conflicts between sources - such as website claims contradicting review content, GBP data conflicting with directory listings, or licensing records not matching claimed credentials.",
+    "appears_in": [
+      "EntityOS",
+      "DiagnosticOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "conflicting information",
+      "source disagreement"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 87,
+    "name": "Cross-Source Alignment",
+    "id": "cross_source_alignment",
+    "definition": "Measures consistency between website, reviews, directories, GBP data, and external references. High alignment across all sources strengthens entity trust. Low alignment raises suspicion.",
+    "appears_in": [
+      "EntityOS",
+      "DiagnosticOS",
+      "GBPOS",
+      "CredentialOS"
+    ],
+    "also_known_as": [
+      "multi-source consistency",
+      "cross-platform alignment"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 88,
+    "name": "Pricing Opacity",
+    "id": "pricing_opacity",
+    "definition": "Identifies patterns of refusal to disclose fees, vague estimates, or bait-and-switch pricing signals found in review complaints and website analysis.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "price manipulation",
+      "bait and switch"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 89,
+    "name": "Commercial Bias Drift",
+    "id": "commercial_bias_drift",
+    "definition": "Identifies 100% transactional CTA content with no educational or informational content. Gets categorized as 'sales collateral' rather than a helpful resource by the information vs. transactional intent classifier.",
+    "appears_in": [
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "sales-only content",
+      "informational deficit"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 90,
+    "name": "Service Menu Depth",
+    "id": "service_menu_depth",
+    "definition": "Measures how thoroughly the GBP service menu covers the entity's actual service offerings. Shallow or missing service menus reduce relevance signals.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "service listing completeness",
+      "menu coverage"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 91,
+    "name": "Information Gain Deficiency",
+    "id": "information_gain_deficiency",
+    "definition": "Identifies content classified as 'commodity knowledge' or 'sales collateral' by the helpful content system. Generic how-to content without first-party proof, zero original data, and sales-only copy.",
+    "appears_in": [
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "commodity content",
+      "zero information gain"
+    ],
+    "category": "Content Utility & Experience",
+    "category_index": 4,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 92,
+    "name": "Lexical Diversity",
+    "id": "lexical_diversity",
+    "definition": "Measures the variety of vocabulary used in a page. Low lexical diversity suggests templated or repetitive content (repeating the same adjectives like 'quality', 'professional', 'trusted'), while high diversity indicates natural writing with precise, varied vocabulary specific to the industry and region.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "vocabulary range",
+      "word variety"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "static",
+    "method": "text_stats"
+  },
+  {
+    "index": 93,
+    "name": "Syntactic Burstiness",
+    "id": "syntactic_burstiness",
+    "definition": "Measures variation in sentence structure and length. Natural human writing contains irregular patterns with a mix of short punchy sentences and longer detailed ones, while AI or templated content tends to produce uniform sentence lengths and robotic rhythm.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "sentence variation",
+      "structural variance"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "static",
+    "method": "text_stats"
+  },
+  {
+    "index": 94,
+    "name": "Semantic Drift",
+    "id": "semantic_drift",
+    "definition": "Evaluates natural topic flow across content. Low semantic drift means content stays rigidly on one sales message with robotic topic adherence. High semantic drift shows natural tangents that add depth, like mentioning local conditions, related problems, or seasonal factors.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "topic shifting",
+      "cohesion gaps",
+      "natural topic flow"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 95,
+    "name": "Cliche Density",
+    "id": "cliche_density",
+    "definition": "Tracks common marketing cliches such as 'go the extra mile', 'second to none', 'customer satisfaction is our priority', or 'best of both worlds'. High density reduces informational uniqueness and signals generic content.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "marketing phrases",
+      "overused expressions"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "static",
+    "method": "text_stats"
+  },
+  {
+    "index": 96,
+    "name": "Idiomatic Regionalism",
+    "id": "idiomatic_regionalism",
+    "definition": "Detects region-specific language, cultural references, or local dialect markers. Strong presence reinforces local authenticity. Generic American English that could describe any city scores low, while local place names, regional terms, and area-specific knowledge scores high.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "regional language",
+      "local dialect",
+      "local language markers"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 97,
+    "name": "Proper Noun Density",
+    "id": "proper_noun_density",
+    "definition": "Measures the presence of specific entities such as equipment brands, team member names, neighborhood names, local landmarks, and certifying bodies. High density increases grounding signals and specificity. Low density means no names, no brands, no locations beyond the city.",
+    "appears_in": [
+      "PageOS",
+      "EntityOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "entity mentions",
+      "named references",
+      "specificity"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 98,
+    "name": "Technical Precision",
+    "id": "technical_precision",
+    "definition": "Assesses the accuracy and specificity of technical terminology. Low precision shows vague statements like 'we use the latest technology and advanced techniques'. High precision shows details like '48-inch CIPP liner cures at 180F using UV-activated resin, eliminating styrene emissions of traditional steam-cure methods'.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "terminology accuracy",
+      "technical depth",
+      "industry expertise depth"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "static",
+    "method": "text_stats"
+  },
+  {
+    "index": 99,
+    "name": "Emotional Variance",
+    "id": "emotional_variance",
+    "definition": "Measures tonal variability across the text. Flat promotional tone throughout indicates corporate or automated writing. Natural shifts between educational, cautionary, proud, and conversational tones signal authentic human authorship.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "tonal range",
+      "sentiment variation",
+      "authentic tone shifts"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "nlp",
+    "method": "nlp_sentiment"
+  },
+  {
+    "index": 100,
+    "name": "Nuance Preservation",
+    "id": "nuance_preservation",
+    "definition": "Tracks whether content acknowledges uncertainty, variation, or context instead of absolute claims. Low nuance shows statements like 'we're the best' and '100% guaranteed'. High nuance shows contextualized claims like 'most homes in this zip code have galvanized supply lines from the 1970s build cycle'.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "hedging language",
+      "contextual awareness",
+      "avoiding absolutes"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "nlp",
+    "method": "nlp_sentiment"
+  },
+  {
+    "index": 101,
+    "name": "Pattern Repetition",
+    "id": "pattern_repetition",
+    "definition": "Identifies repeated structural templates across multiple sections or pages. Repeated heading patterns, paragraph structures, and content block layouts often indicate programmatic page generation or template scaling.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "structural templates",
+      "repetitive patterns"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "static",
+    "method": "text_stats"
+  },
+  {
+    "index": 102,
+    "name": "Pronominal Frequency",
+    "id": "pronominal_frequency",
+    "definition": "Tracks the usage frequency of pronouns such as we, our, you, they, or them. Overuse of 'we' and 'you' in page text suggests corporate boilerplate, while balanced usage suggests a more conversational, natural tone.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "pronoun usage",
+      "voice markers"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "static",
+    "method": "text_stats"
+  },
+  {
+    "index": 103,
+    "name": "Passive Voice Saturation",
+    "id": "passive_voice_saturation",
+    "definition": "Measures how often passive constructions appear relative to active voice. Moderate usage is normal, but high passive voice saturation often appears in generic or templated content and can signal automated writing.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "passive constructions",
+      "voice balance"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "static",
+    "method": "text_stats"
+  },
+  {
+    "index": 104,
+    "name": "Rhetorical Question Ratio",
+    "id": "rhetorical_question_ratio",
+    "definition": "Measures the presence of rhetorical questions used for engagement. Excessive use can signal sales copy or AI-generated patterns. Overuse of questions like 'Looking for the best service?' is a common pattern in low-quality content.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "engagement questions",
+      "question density"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "static",
+    "method": "text_stats"
+  },
+  {
+    "index": 105,
+    "name": "Verb Tense Consistency",
+    "id": "verb_tense_consistency",
+    "definition": "Evaluates whether verb tenses shift logically across the text. Natural writing contains expected shifts between past, present, and future tense. Highly rigid tense patterns often indicate templated or AI-generated writing.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "tense shifts",
+      "temporal consistency"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "static",
+    "method": "text_stats"
+  },
+  {
+    "index": 106,
+    "name": "Adverbial Fluff",
+    "id": "adverbial_fluff",
+    "definition": "Detects unnecessary filler adverbs like 'basically', 'actually', 'essentially', 'extremely', or 'very'. High levels suggest padding or AI-generated content that inflates word count without adding information.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "filler words",
+      "unnecessary modifiers"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "static",
+    "method": "text_stats"
+  },
+  {
+    "index": 107,
+    "name": "Prompt Leakage",
+    "id": "prompt_leakage",
+    "definition": "Detects artifacts of AI prompting such as instruction fragments, meta-commentary, or phrases like 'As an AI...' left in the text. These indicate content was generated by an LLM and not properly edited.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS",
+      "VisionOS"
+    ],
+    "also_known_as": [
+      "AI artifacts",
+      "instruction traces"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 108,
+    "name": "Perplexity Volatility",
+    "id": "perplexity_volatility",
+    "definition": "Measures unpredictability in language patterns across the page. Natural human writing shows moderate volatility, while templated or AI-generated text is highly predictable with uniform information density throughout.",
+    "appears_in": [
+      "PageOS",
+      "RewriteOS"
+    ],
+    "also_known_as": [
+      "language predictability",
+      "text entropy"
+    ],
+    "category": "Linguistic Authenticity & AI Detection",
+    "category_index": 5,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 109,
+    "name": "Human Presence Signals",
+    "id": "human_presence_signals",
+    "definition": "Detects visible staff members, technicians, or leadership on the website. Team photos uniqueness, named personnel, and visible human operators establish authenticity and counter the 'faceless corporation' pattern.",
+    "appears_in": [
+      "PageOS",
+      "EntityOS",
+      "VisionOS"
+    ],
+    "also_known_as": [
+      "team visibility",
+      "personnel signals"
+    ],
+    "category": "Visual Intelligence & Realism",
+    "category_index": 6,
+    "tier": "deep",
+    "method": "vision_ai"
+  },
+  {
+    "index": 110,
+    "name": "Team Photo Uniqueness",
+    "id": "team_photo_uniqueness",
+    "definition": "Detects whether team images are authentic original photos rather than stock photos. Computer vision analysis can identify stock imagery patterns, generic studio setups, and commercially licensed images.",
+    "appears_in": [
+      "VisionOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "authentic imagery",
+      "stock photo detection"
+    ],
+    "category": "Visual Intelligence & Realism",
+    "category_index": 6,
+    "tier": "deep",
+    "method": "vision_ai"
+  },
+  {
+    "index": 111,
+    "name": "Visual Age",
+    "id": "visual_age",
+    "definition": "Evaluates whether the site design appears outdated through deprecated design patterns, old frameworks, or visual conventions that signal the site hasn't been maintained.",
+    "appears_in": [
+      "PageOS",
+      "EntityOS"
+    ],
+    "also_known_as": [
+      "design freshness",
+      "UI currency"
+    ],
+    "category": "Visual Intelligence & Realism",
+    "category_index": 6,
+    "tier": "deep",
+    "method": "vision_ai"
+  },
+  {
+    "index": 112,
+    "name": "Visual Hierarchy",
+    "id": "visual_hierarchy",
+    "definition": "Evaluates whether the page layout guides users through content in a logical, prioritized order. Poor visual hierarchy causes users to miss important information and increases bounce rates.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "layout structure",
+      "content priority"
+    ],
+    "category": "Visual Intelligence & Realism",
+    "category_index": 6,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 113,
+    "name": "Visual Authenticity Gap",
+    "id": "visual_authenticity_gap",
+    "definition": "Identifies reliance on stock photos instead of authentic project documentation. Triggers the 'generic business' flag and fails the E-E-A-T experience check from computer vision analysis.",
+    "appears_in": [
+      "DriftOS",
+      "VisionOS"
+    ],
+    "also_known_as": [
+      "stock photo reliance",
+      "inauthentic imagery"
+    ],
+    "category": "Visual Intelligence & Realism",
+    "category_index": 6,
+    "tier": "deep",
+    "method": "vision_ai"
+  },
+  {
+    "index": 114,
+    "name": "Photo Diversity",
+    "id": "photo_diversity",
+    "definition": "Evaluates the variety and quality of photos in the GBP listing including team photos, project work, equipment, and facilities. Diverse photo galleries signal authenticity.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "image variety",
+      "photo quality"
+    ],
+    "category": "Visual Intelligence & Realism",
+    "category_index": 6,
+    "tier": "deep",
+    "method": "vision_ai"
+  },
+  {
+    "index": 115,
+    "name": "Watermark Detection",
+    "id": "watermark_detection",
+    "definition": "Scans for visible or semi-transparent watermarks from stock agencies like Getty, Shutterstock, Adobe Stock, iStock, or Alamy. Presence of stock watermarks is a clear indicator of non-original imagery.",
+    "appears_in": [
+      "VisionOS"
+    ],
+    "also_known_as": [
+      "stock watermark",
+      "agency mark"
+    ],
+    "category": "Visual Intelligence & Realism",
+    "category_index": 6,
+    "tier": "deep",
+    "method": "vision_ai"
+  },
+  {
+    "index": 116,
+    "name": "Frequency Domain Noise",
+    "id": "frequency_domain_noise",
+    "definition": "Assesses whether the image shows digital signature patterns typical of AI generators including uniform noise patterns, SynthID markers, or unusual pixel-level artifacts.",
+    "appears_in": [
+      "VisionOS"
+    ],
+    "also_known_as": [
+      "AI noise patterns",
+      "generator signatures"
+    ],
+    "category": "Visual Intelligence & Realism",
+    "category_index": 6,
+    "tier": "deep",
+    "method": "vision_ai"
+  },
+  {
+    "index": 117,
+    "name": "High-Key Uniformity",
+    "id": "high_key_uniformity",
+    "definition": "Measures the light-to-shadow ratio. Studio stock photos show uniform, controlled lighting with soft shadows. Natural photos have uneven, directional light with hard shadows and highlights.",
+    "appears_in": [
+      "VisionOS"
+    ],
+    "also_known_as": [
+      "lighting analysis",
+      "studio lighting detection"
+    ],
+    "category": "Visual Intelligence & Realism",
+    "category_index": 6,
+    "tier": "deep",
+    "method": "vision_ai"
+  },
+  {
+    "index": 118,
+    "name": "Bokeh Depth Estimation",
+    "id": "bokeh_depth_estimation",
+    "definition": "Assesses depth-of-field characteristics. AI and stock images often feature artificially perfect shallow DOF with mathematically smooth bokeh. Real photos have optical imperfections and irregular bokeh shapes.",
+    "appears_in": [
+      "VisionOS"
+    ],
+    "also_known_as": [
+      "depth of field analysis",
+      "DOF authenticity"
+    ],
+    "category": "Visual Intelligence & Realism",
+    "category_index": 6,
+    "tier": "deep",
+    "method": "vision_ai"
+  },
+  {
+    "index": 119,
+    "name": "Micro Expression Mismatch",
+    "id": "micro_expression_mismatch",
+    "definition": "Checks for forced or unnatural facial expressions. Stock models show exaggerated, uniform expressions. AI-generated faces may have subtle asymmetries, teeth artifacts, or expression inconsistencies.",
+    "appears_in": [
+      "VisionOS"
+    ],
+    "also_known_as": [
+      "facial expression analysis",
+      "expression authenticity"
+    ],
+    "category": "Visual Intelligence & Realism",
+    "category_index": 6,
+    "tier": "deep",
+    "method": "vision_ai"
+  },
+  {
+    "index": 120,
+    "name": "Gaze Vector Analysis",
+    "id": "gaze_vector_analysis",
+    "definition": "Checks if subjects look directly at camera with a 'commercial' gaze pattern. Stock photos favor direct eye contact, while real workplace photos show people engaged in actual tasks.",
+    "appears_in": [
+      "VisionOS"
+    ],
+    "also_known_as": [
+      "eye contact analysis",
+      "gaze direction"
+    ],
+    "category": "Visual Intelligence & Realism",
+    "category_index": 6,
+    "tier": "deep",
+    "method": "vision_ai"
+  },
+  {
+    "index": 121,
+    "name": "Sanitation Score",
+    "id": "sanitation_score",
+    "definition": "Measures how 'clinically clean' the environment appears. Real workspaces have clutter, wear, and personal items. Stock and AI images are sanitized with perfectly arranged props.",
+    "appears_in": [
+      "VisionOS"
+    ],
+    "also_known_as": [
+      "environment authenticity",
+      "workspace realism"
+    ],
+    "category": "Visual Intelligence & Realism",
+    "category_index": 6,
+    "tier": "deep",
+    "method": "vision_ai"
+  },
+  {
+    "index": 122,
+    "name": "Product Placement Detection",
+    "id": "product_placement_detection",
+    "definition": "Identifies generic, unbranded 'hero' objects or props that exist only for visual composition rather than functional use, indicating staged commercial photography.",
+    "appears_in": [
+      "VisionOS"
+    ],
+    "also_known_as": [
+      "prop detection",
+      "staging indicators"
+    ],
+    "category": "Visual Intelligence & Realism",
+    "category_index": 6,
+    "tier": "deep",
+    "method": "vision_ai"
+  },
+  {
+    "index": 123,
+    "name": "Generic Intent Vector",
+    "id": "generic_intent_vector",
+    "definition": "Overall assessment of whether the image was staged for commercial or stock purposes versus captured in an organic, real-world context, considering props, clothing, environment, and composition.",
+    "appears_in": [
+      "VisionOS"
+    ],
+    "also_known_as": [
+      "commercial staging",
+      "authenticity verdict"
+    ],
+    "category": "Visual Intelligence & Realism",
+    "category_index": 6,
+    "tier": "deep",
+    "method": "vision_ai"
+  },
+  {
+    "index": 124,
+    "name": "User Interaction Signals",
+    "id": "navboost",
+    "definition": "Tracks how users interact with search results. High bounce rates, pogo-sticking back to search, and low dwell time signal that a page didn't satisfy the query. Operates at the query level - if users consistently click a result and quickly return to search, the page is demoted for that specific query regardless of its other signals.",
+    "appears_in": [
+      "DiagnosticOS",
+      "DriftOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "NavBoost",
+      "satisfaction proxies",
+      "navboost-class"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 125,
+    "name": "Trust & Popularity Integrity",
+    "id": "trust_integrity",
+    "definition": "Validates that popularity signals are authentic and naturally correlated. High review counts without corresponding branded search volume or news mentions raise suspicion. Google's systems look for a natural nexus of signals. When one metric is disproportionately high compared to others, its weight is dampened as a precaution, creating a trust ceiling.",
+    "appears_in": [
+      "DiagnosticOS",
+      "CredentialOS",
+      "BacklinkOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "popularity integrity",
+      "popularity authenticity",
+      "SpamBrain",
+      "spambrain-class"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 126,
+    "name": "Review Sentiment & Trust",
+    "id": "sentiment_trust",
+    "definition": "Extracts patterns from review content to validate entity claims. Google's sentiment extraction identifies keywords and patterns in reviews that either confirm or contradict an entity's claimed expertise. Strong review-to-claim alignment is a powerful trust signal.",
+    "appears_in": [
+      "EntityOS",
+      "DriftOS",
+      "CredentialOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "review sentiment",
+      "sentiment extraction",
+      "independent verification",
+      "external trust signals"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "nlp",
+    "method": "nlp_sentiment"
+  },
+  {
+    "index": 127,
+    "name": "Branded Search Connection",
+    "id": "branded_search_connection",
+    "definition": "Measures whether the entity generates branded search volume. Entities that produce branded search queries demonstrate real-world recognition beyond just web presence.",
+    "appears_in": [
+      "EntityOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "brand search volume",
+      "branded queries"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 128,
+    "name": "Review Sentiment Asymmetry",
+    "id": "review_sentiment_asymmetry",
+    "definition": "Detects when reviews mention only generic attributes rather than specific technical services, creating algorithmic doubt about the entity's specialized service delivery capabilities.",
+    "appears_in": [
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "generic review patterns",
+      "service-review mismatch"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "nlp",
+    "method": "nlp_sentiment"
+  },
+  {
+    "index": 129,
+    "name": "Citation Utility",
+    "id": "citation_utility",
+    "definition": "Evaluates whether the link serves as a meaningful citation or reference that adds value for readers, versus being placed purely for SEO purposes.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "reference value",
+      "editorial citation"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 130,
+    "name": "Review Volume",
+    "id": "review_volume",
+    "definition": "Measures the total number of reviews across the GBP profile. Higher volumes provide more data for sentiment analysis and signal business maturity to ranking systems.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "total reviews",
+      "review count"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 131,
+    "name": "Review Velocity",
+    "id": "review_velocity",
+    "definition": "Tracks the rate at which new reviews are being acquired. Accelerating velocity signals growing business activity, while decelerating velocity signals decline.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "review flow rate",
+      "acquisition speed"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 132,
+    "name": "Sentiment Consistency",
+    "id": "sentiment_consistency",
+    "definition": "Evaluates whether review sentiment is consistent across different time periods and platforms, or shows concerning patterns like sudden shifts or bimodal distributions.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "rating stability",
+      "sentiment patterns"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "nlp",
+    "method": "nlp_sentiment"
+  },
+  {
+    "index": 133,
+    "name": "Reviewer Trust",
+    "id": "reviewer_trust",
+    "definition": "Assesses the trustworthiness of individual reviewers based on their review history, profile completeness, and patterns. Reviews from established, active Google users carry more weight.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "reviewer credibility",
+      "review authenticity"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 134,
+    "name": "Response Latency",
+    "id": "response_latency",
+    "definition": "Measures how quickly the business responds to reviews. Fast, consistent responses signal active engagement and customer care to both users and ranking systems.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "reply speed",
+      "response time"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 135,
+    "name": "Response Quality",
+    "id": "response_quality",
+    "definition": "Evaluates the substance and personalization of owner responses to reviews. Generic template responses score lower than personalized, detailed replies that address specific feedback.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "reply quality",
+      "engagement depth"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 136,
+    "name": "NAP Consistency",
+    "id": "nap_consistency",
+    "definition": "Evaluates Name, Address, Phone consistency across all directory listings, citations, and web mentions. Inconsistent NAP data fragments entity signals and confuses ranking systems.",
+    "appears_in": [
+      "GBPOS",
+      "EntityOS"
+    ],
+    "also_known_as": [
+      "citation accuracy",
+      "directory consistency"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 137,
+    "name": "Press Mentions",
+    "id": "press_mentions",
+    "definition": "Tracks mentions in local news, industry publications, and media coverage. Press mentions are strong prominence signals that validate entity authority.",
+    "appears_in": [
+      "GBPOS",
+      "EntityOS"
+    ],
+    "also_known_as": [
+      "media coverage",
+      "news mentions"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 138,
+    "name": "Gemini/AI Inclusion",
+    "id": "gemini_inclusion",
+    "definition": "Evaluates whether the entity appears in AI-generated recommendations and summaries. Entities that surface in Gemini and AI Overview results have stronger entity graph presence.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "AI recommendation",
+      "generative inclusion"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 139,
+    "name": "Citation Velocity Asymmetry",
+    "id": "citation_velocity_asymmetry",
+    "definition": "Detects high review velocity paired with low branded search demand or lack of corroborating local media and citation growth. This asymmetry signals inauthentic prominence to trust systems.",
+    "appears_in": [
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "review-search mismatch",
+      "popularity gap"
+    ],
+    "category": "External Signals & Market Reputation",
+    "category_index": 7,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 140,
+    "name": "Link Value & Authority Transfer",
+    "id": "link_value",
+    "definition": "Evaluates the quality, relevance, and authenticity of inbound links. Assesses source trust, topical alignment, audience overlap, and editorial intent of each link. High-value links from industry peers reinforce entity positioning; toxic or irrelevant links can trigger penalties.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "authority transfer"
+    ],
+    "category": "Link Profile & Off-Page Authority",
+    "category_index": 8,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 141,
+    "name": "Link Toxicity & Safety",
+    "id": "toxicity_safety",
+    "definition": "Identifies manipulative link patterns including PBNs, paid links, excessive exact-match anchors, and doorway pages. SpamBrain-class systems detect patterns of artificial link building. PBN footprints, unnatural anchor text distributions, and links from known spam neighborhoods trigger link value neutralization or penalties.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "toxicity",
+      "link toxicity"
+    ],
+    "category": "Link Profile & Off-Page Authority",
+    "category_index": 8,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 142,
+    "name": "Entity Link Authenticity",
+    "id": "entity_link_authenticity",
+    "definition": "Evaluates whether the business appears in credible external directories and associations such as BBB, Yelp, Clutch, or Alignable, validated via external search signals.",
+    "appears_in": [
+      "EntityOS",
+      "BacklinkOS",
+      "CredentialOS"
+    ],
+    "also_known_as": [
+      "directory presence",
+      "citation authenticity"
+    ],
+    "category": "Link Profile & Off-Page Authority",
+    "category_index": 8,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 143,
+    "name": "Domain Age & Maturity",
+    "id": "domain_age_maturity",
+    "definition": "Evaluates how old the linking domain is. Longer-established domains carry more trust equity. New domains linking heavily can signal artificial link building.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "domain history",
+      "domain trust age"
+    ],
+    "category": "Link Profile & Off-Page Authority",
+    "category_index": 8,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 144,
+    "name": "Historical Indexing Stability",
+    "id": "historical_indexing_stability",
+    "definition": "Checks whether the linking domain has been consistently indexed by search engines or shows drops and recoveries that suggest quality issues or penalties.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "index consistency",
+      "crawl history"
+    ],
+    "category": "Link Profile & Off-Page Authority",
+    "category_index": 8,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 145,
+    "name": "Anchor Text Relevance",
+    "id": "anchor_text_relevance",
+    "definition": "Evaluates the anchor text used for the link. Natural, descriptive anchors transfer topical signals. Over-optimized exact-match anchors can trigger spam detection.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "link text quality",
+      "anchor signals"
+    ],
+    "category": "Link Profile & Off-Page Authority",
+    "category_index": 8,
+    "tier": "nlp",
+    "method": "nlp_entities"
+  },
+  {
+    "index": 146,
+    "name": "Surrounding Text Sentiment",
+    "id": "surrounding_text_sentiment",
+    "definition": "Analyzes whether the text surrounding the link is positive, neutral, or negative. Links in negative contexts can transfer negative sentiment to the target.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "contextual sentiment",
+      "link context tone"
+    ],
+    "category": "Link Profile & Off-Page Authority",
+    "category_index": 8,
+    "tier": "nlp",
+    "method": "nlp_sentiment"
+  },
+  {
+    "index": 147,
+    "name": "PBN Pattern Signals",
+    "id": "pbn_pattern_signals",
+    "definition": "Detects whether the linking source looks like a private blog network site through patterns like thin content, unrelated topics, excessive outbound links, and hosting fingerprints.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "PBN detection",
+      "network footprint"
+    ],
+    "category": "Link Profile & Off-Page Authority",
+    "category_index": 8,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 148,
+    "name": "Automated Content Likelihood",
+    "id": "automated_content_likelihood",
+    "definition": "Evaluates whether the linking source appears to use mass-generated or AI-produced content, which reduces the editorial value and trust transfer of the link.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "mass content detection",
+      "AI content source"
+    ],
+    "category": "Link Profile & Off-Page Authority",
+    "category_index": 8,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 149,
+    "name": "Link Scheme Pattern",
+    "id": "link_scheme_pattern",
+    "definition": "Identifies whether the link is part of an obvious link exchange, reciprocal linking scheme, or paid link arrangement that violates search engine guidelines.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "link exchange",
+      "reciprocal linking"
+    ],
+    "category": "Link Profile & Off-Page Authority",
+    "category_index": 8,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 150,
+    "name": "Doorway Page Identification",
+    "id": "doorway_page_identification",
+    "definition": "Checks whether the page containing the link is a doorway or gateway page designed primarily for search engines rather than users.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "gateway page",
+      "search-only page"
+    ],
+    "category": "Link Profile & Off-Page Authority",
+    "category_index": 8,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 151,
+    "name": "Aggressive Exact Match Anchor",
+    "id": "aggressive_exact_match_anchor",
+    "definition": "Detects whether the anchor text is over-optimized with exact match keywords, which is a strong signal of manipulative link building to spam detection systems.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "anchor over-optimization",
+      "keyword anchor spam"
+    ],
+    "category": "Link Profile & Off-Page Authority",
+    "category_index": 8,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 152,
+    "name": "SGE Extraction Potential",
+    "id": "sge_extraction_potential",
+    "definition": "Evaluates whether AI systems can use this link to connect the two entities in AI-generated search summaries and recommendations.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "AI citation potential",
+      "generative search value"
+    ],
+    "category": "Link Profile & Off-Page Authority",
+    "category_index": 8,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 153,
+    "name": "Trust by Association",
+    "id": "trust_by_association",
+    "definition": "Evaluates whether the source's reputation enhances the target's trustworthiness. Links from highly trusted domains transfer trust signals that benefit the target entity.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "reputation transfer",
+      "trust halo"
+    ],
+    "category": "Link Profile & Off-Page Authority",
+    "category_index": 8,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 154,
+    "name": "Composite Link Value",
+    "id": "composite_link_value",
+    "definition": "The aggregated score combining source trust, topical alignment, toxicity risk, and agentic utility into a single 0.0-1.0 link value (LV) with veto override capability.",
+    "appears_in": [
+      "BacklinkOS"
+    ],
+    "also_known_as": [
+      "link value score",
+      "LV score"
+    ],
+    "category": "Link Profile & Off-Page Authority",
+    "category_index": 8,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 155,
+    "name": "Schema & Structured Data",
+    "id": "schema_grounding",
+    "definition": "Evaluates the depth and accuracy of structured data markup. JSON-LD schema for Organization, LocalBusiness, Product, and FAQ types enables search engines to extract and validate entity information. Missing or inaccurate schema creates ambiguity in entity classification.",
+    "appears_in": [
+      "PageOS",
+      "DriftOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "schema",
+      "structured data",
+      "digital trust signal propagation",
+      "schema precision"
+    ],
+    "category": "Technical Infrastructure & Logic",
+    "category_index": 9,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 156,
+    "name": "Schema Grounding Depth",
+    "id": "schema_grounding_depth",
+    "definition": "Measures how extensively structured data (JSON-LD) describes the entity and services on the page. Deep, complete schema enables richer understanding by search engines and AI systems.",
+    "appears_in": [
+      "PageOS",
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "schema coverage",
+      "markup depth"
+    ],
+    "category": "Technical Infrastructure & Logic",
+    "category_index": 9,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 157,
+    "name": "SGE/AI Overview Compatibility",
+    "id": "sge_compatibility",
+    "definition": "Evaluates whether the page structure supports extraction by AI-generated summaries and search generative experiences. Well-sectioned content with clear answers is more likely to appear in AI overviews.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "AI overview readiness",
+      "SGE optimization"
+    ],
+    "category": "Technical Infrastructure & Logic",
+    "category_index": 9,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 158,
+    "name": "Content Sectioning Clarity",
+    "id": "content_sectioning_clarity",
+    "definition": "Evaluates heading hierarchy (H1, H2, H3, H4) and logical page structure from the scraped page. Clear, semantic heading organization enables both users and crawlers to parse content efficiently.",
+    "appears_in": [
+      "PageOS"
+    ],
+    "also_known_as": [
+      "heading hierarchy",
+      "page organization",
+      "header hierarchy"
+    ],
+    "category": "Technical Infrastructure & Logic",
+    "category_index": 9,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 159,
+    "name": "Breadcrumb Logic",
+    "id": "breadcrumb_logic",
+    "definition": "Checks whether page navigation clearly describes site structure through logical breadcrumb paths that help both users and search engines understand page context.",
+    "appears_in": [
+      "PageOS"
+    ],
+    "also_known_as": [
+      "navigation structure",
+      "breadcrumb markup"
+    ],
+    "category": "Technical Infrastructure & Logic",
+    "category_index": 9,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 160,
+    "name": "Canonical Signal Health",
+    "id": "canonical_signal_health",
+    "definition": "Verifies that canonical tags correctly identify the authoritative URL from the scraped page meta data, preventing duplicate content issues and consolidating ranking signals.",
+    "appears_in": [
+      "PageOS"
+    ],
+    "also_known_as": [
+      "canonical tags",
+      "URL authority"
+    ],
+    "category": "Technical Infrastructure & Logic",
+    "category_index": 9,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 161,
+    "name": "API Integration Readiness",
+    "id": "api_integration_readiness",
+    "definition": "Measures whether structured content could be easily consumed by APIs and third-party systems. Well-structured data with clean markup enables broader content distribution.",
+    "appears_in": [
+      "PageOS"
+    ],
+    "also_known_as": [
+      "data portability",
+      "structured output"
+    ],
+    "category": "Technical Infrastructure & Logic",
+    "category_index": 9,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 162,
+    "name": "Structured FAQ Schema",
+    "id": "structured_faq_schema",
+    "definition": "Detects implementation of FAQ structured data with genuine, useful Q&A content from the scraped page. Properly marked up FAQs can earn rich results in search.",
+    "appears_in": [
+      "PageOS"
+    ],
+    "also_known_as": [
+      "FAQ markup",
+      "question schema"
+    ],
+    "category": "Technical Infrastructure & Logic",
+    "category_index": 9,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 163,
+    "name": "Semantic HTML",
+    "id": "semantic_html",
+    "definition": "Evaluates whether the page uses proper semantic HTML elements (article, section, aside, nav, main) rather than generic divs, improving machine readability and accessibility.",
+    "appears_in": [
+      "PageOS"
+    ],
+    "also_known_as": [
+      "semantic markup",
+      "HTML5 structure"
+    ],
+    "category": "Technical Infrastructure & Logic",
+    "category_index": 9,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 164,
+    "name": "Crawlability",
+    "id": "crawlability",
+    "definition": "Evaluates how easily search engine crawlers can access and index site content. Blocked resources, JavaScript rendering requirements, or robots.txt restrictions can prevent content discovery.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "crawl access",
+      "indexability"
+    ],
+    "category": "Technical Infrastructure & Logic",
+    "category_index": 9,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 165,
+    "name": "Indexation Depth",
+    "id": "indexation_depth",
+    "definition": "Measures how many of a site's pages are actually indexed by search engines relative to total pages published. Low indexation ratios signal quality concerns or crawl barriers.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "index coverage",
+      "pages indexed"
+    ],
+    "category": "Technical Infrastructure & Logic",
+    "category_index": 9,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 166,
+    "name": "Internal Linking Coherence",
+    "id": "internal_linking_coherence",
+    "definition": "Evaluates whether the site's internal link structure creates logical topical clusters and helps search engines understand content relationships and hierarchy.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "site structure",
+      "link architecture"
+    ],
+    "category": "Technical Infrastructure & Logic",
+    "category_index": 9,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 167,
+    "name": "Tech Stack Currency",
+    "id": "tech_stack_currency",
+    "definition": "Measures whether the underlying technology is modern and maintained. Deprecated JavaScript libraries, old CMS versions, and outdated frameworks signal technical neglect.",
+    "appears_in": [
+      "PageOS",
+      "EntityOS"
+    ],
+    "also_known_as": [
+      "technology age",
+      "stack freshness"
+    ],
+    "category": "Technical Infrastructure & Logic",
+    "category_index": 9,
+    "tier": "nlp",
+    "method": "nlp_combined"
+  },
+  {
+    "index": 168,
+    "name": "Technical Depth Deficit",
+    "id": "technical_depth_deficit",
+    "definition": "Detects generic service descriptions lacking technical specificity, causing content to be relegated to the 'surface-level content' tier by information gain and helpful content classifiers.",
+    "appears_in": [
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "shallow content",
+      "generic descriptions"
+    ],
+    "category": "Technical Infrastructure & Logic",
+    "category_index": 9,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 169,
+    "name": "Schema Sync",
+    "id": "schema_sync",
+    "definition": "Measures alignment between website structured data (JSON-LD) and GBP listing data. Mismatches between schema and GBP create entity confusion.",
+    "appears_in": [
+      "GBPOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "structured data alignment",
+      "schema-GBP match"
+    ],
+    "category": "Technical Infrastructure & Logic",
+    "category_index": 9,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 170,
+    "name": "Scaled Content System",
+    "id": "scaled_content",
+    "definition": "Detects content created at scale that provides little unique value between pages. Templated service pages, thin city pages, and repetitive structures trigger domain-level dampening. When a significant portion of pages share 80%+ identical boilerplate text, value propositions, and structure, the system classifies them as unhelpful, creating a domain-level quality anchor that suppresses the entire site.",
+    "appears_in": [
+      "DiagnosticOS",
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "sitewide quality dampeners",
+      "duplicate threshold",
+      "doorway detection"
+    ],
+    "category": "Integrity Risk & Anti-Abuse",
+    "category_index": 10,
+    "tier": "static",
+    "method": "text_analysis"
+  },
+  {
+    "index": 171,
+    "name": "Content Scraping Traces",
+    "id": "content_scraping_traces",
+    "definition": "Detects duplicate content that appears verbatim on other sites across the internet, checked via search queries for exact phrases from the page.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "duplicate detection",
+      "scraped content"
+    ],
+    "category": "Integrity Risk & Anti-Abuse",
+    "category_index": 10,
+    "tier": "static",
+    "method": "text_analysis"
+  },
+  {
+    "index": 172,
+    "name": "Fake Expert Personas",
+    "id": "fake_expert_personas",
+    "definition": "Detects fabricated author profiles, non-existent experts, or synthetic bios used on the page to simulate authority. Often detectable by reverse image search or lack of external presence.",
+    "appears_in": [
+      "PageOS",
+      "EntityOS",
+      "VisionOS"
+    ],
+    "also_known_as": [
+      "synthetic authors",
+      "fake bios"
+    ],
+    "category": "Integrity Risk & Anti-Abuse",
+    "category_index": 10,
+    "tier": "deep",
+    "method": "vision_ai"
+  },
+  {
+    "index": 173,
+    "name": "Review Velocity Anomaly",
+    "id": "review_velocity_anomaly",
+    "definition": "Detects unusual bursts or patterns in review acquisition that suggest manipulation. Sudden spikes of reviews followed by silence, or clusters of generic language, indicate inauthentic signals.",
+    "appears_in": [
+      "EntityOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "review spikes",
+      "unnatural review patterns"
+    ],
+    "category": "Integrity Risk & Anti-Abuse",
+    "category_index": 10,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 174,
+    "name": "Lead Generation Front",
+    "id": "lead_generation_front",
+    "definition": "Identifies sites designed primarily for capturing leads rather than providing actual services. Pages with minimal value content that exist purely to funnel contact information.",
+    "appears_in": [
+      "PageOS",
+      "DiagnosticOS",
+      "EntityOS"
+    ],
+    "also_known_as": [
+      "lead gen site",
+      "referral front"
+    ],
+    "category": "Integrity Risk & Anti-Abuse",
+    "category_index": 10,
+    "tier": "static",
+    "method": "text_analysis"
+  },
+  {
+    "index": 175,
+    "name": "Service Page Uniqueness",
+    "id": "service_page_uniqueness",
+    "definition": "Measures how unique each service page is compared to others on the same site. Low uniqueness ratios where service pages share most of their content trigger scaled content detection.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "page uniqueness ratio",
+      "content differentiation"
+    ],
+    "category": "Integrity Risk & Anti-Abuse",
+    "category_index": 10,
+    "tier": "static",
+    "method": "text_analysis"
+  },
+  {
+    "index": 176,
+    "name": "Template Overreliance",
+    "id": "template_overreliance",
+    "definition": "Detects when a site relies heavily on a single template across multiple service or location pages, creating patterns that trigger scaled content detection at the domain level.",
+    "appears_in": [
+      "EntityOS",
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "template replication",
+      "boilerplate abuse"
+    ],
+    "category": "Integrity Risk & Anti-Abuse",
+    "category_index": 10,
+    "tier": "static",
+    "method": "text_analysis"
+  },
+  {
+    "index": 177,
+    "name": "Review Manipulation",
+    "id": "review_manipulation",
+    "definition": "Detects patterns suggesting fake or manipulated reviews including burst reviews with generic language, bimodal rating distributions, or synthetic pattern indicators like identical phrasing across multiple reviews.",
+    "appears_in": [
+      "EntityOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "fake reviews",
+      "review fraud",
+      "synthetic patterns"
+    ],
+    "category": "Integrity Risk & Anti-Abuse",
+    "category_index": 10,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 178,
+    "name": "Spam Detection Risk",
+    "id": "spam_detection_risk",
+    "definition": "Calculates a 0.00-1.00 risk score for potential spam signals in the GBP listing including fake reviews, keyword-stuffed names, and manipulative tactics.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "spam score",
+      "manipulation risk"
+    ],
+    "category": "Integrity Risk & Anti-Abuse",
+    "category_index": 10,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 179,
+    "name": "Scaled Content Risk",
+    "id": "scaled_content_risk",
+    "definition": "Evaluates the ratio of templated, low-value pages to unique content pages. High ratios of zero-traffic URLs, city page templates, and exact-match internal anchors trigger domain-level quality dampening.",
+    "appears_in": [
+      "DiagnosticOS"
+    ],
+    "also_known_as": [
+      "deadweight ratio",
+      "zombie page ratio"
+    ],
+    "category": "Integrity Risk & Anti-Abuse",
+    "category_index": 10,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 180,
+    "name": "Intent Capture Speed",
+    "id": "intent_capture_speed",
+    "definition": "Quantifies how quickly a motivated visitor can find what they need and take action. Slow intent capture increases bounce rates and signals poor user satisfaction to Google's interaction classifiers.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "time to action",
+      "conversion speed"
+    ],
+    "category": "Behavioral Validation & User Interaction",
+    "category_index": 11,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 181,
+    "name": "Action Visibility",
+    "id": "action_visibility",
+    "definition": "Evaluates how prominently calls to action are displayed. Hidden phone numbers, buried contact forms, and missing above-the-fold CTAs create conversion leakage.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "CTA visibility",
+      "conversion accessibility"
+    ],
+    "category": "Behavioral Validation & User Interaction",
+    "category_index": 11,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 182,
+    "name": "Trust Before Ask",
+    "id": "trust_before_ask",
+    "definition": "Measures whether trust signals (reviews, credentials, guarantees) are presented before conversion points. Asking for user action without establishing trust first reduces conversion rates.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "trust positioning",
+      "pre-conversion trust"
+    ],
+    "category": "Behavioral Validation & User Interaction",
+    "category_index": 11,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 183,
+    "name": "Choice Simplicity",
+    "id": "choice_simplicity",
+    "definition": "Evaluates whether the user path to conversion is simple and clear. Too many options, confusing navigation, or unclear next steps create decision paralysis and increase bounce rates.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "conversion clarity",
+      "path simplicity"
+    ],
+    "category": "Behavioral Validation & User Interaction",
+    "category_index": 11,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 184,
+    "name": "Form Field Entropy",
+    "id": "form_field_entropy",
+    "definition": "Measures the complexity and number of form fields relative to the conversion goal. Excessive form requirements create friction that reduces completion rates.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "form complexity",
+      "field count"
+    ],
+    "category": "Behavioral Validation & User Interaction",
+    "category_index": 11,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 185,
+    "name": "Mobile Navigation Depth",
+    "id": "mobile_nav_depth",
+    "definition": "Measures how many taps or interactions are required to reach key content on mobile devices. Deep navigation structures on mobile create friction and signal poor user experience.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "mobile UX",
+      "tap depth"
+    ],
+    "category": "Behavioral Validation & User Interaction",
+    "category_index": 11,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 186,
+    "name": "Sticky Element Overlap",
+    "id": "sticky_element_overlap",
+    "definition": "Detects whether sticky headers, footers, or CTAs overlap with page content, blocking readability or interaction on various screen sizes.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "fixed element interference",
+      "overlay conflicts"
+    ],
+    "category": "Behavioral Validation & User Interaction",
+    "category_index": 11,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 187,
+    "name": "Conversion Leakage",
+    "id": "conversion_leakage",
+    "definition": "Identifies points in the user journey where potential conversions are lost due to UX issues such as hidden phone numbers, non-sticky CTAs, excessive form requirements, or delayed trust signals.",
+    "appears_in": [
+      "EntityOS",
+      "PageOS"
+    ],
+    "also_known_as": [
+      "conversion barriers",
+      "funnel leakage"
+    ],
+    "category": "Behavioral Validation & User Interaction",
+    "category_index": 11,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 188,
+    "name": "Emergency Intent Friction",
+    "id": "emergency_intent_friction",
+    "definition": "Detects UX barriers for urgent service requests. High bounce rates on pages that should serve emergency intent signal failure to satisfy 'urgent intent' to NavBoost-class interaction systems.",
+    "appears_in": [
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "urgent UX failure",
+      "emergency conversion barriers"
+    ],
+    "category": "Behavioral Validation & User Interaction",
+    "category_index": 11,
+    "tier": "deep",
+    "method": "gemini_score"
+  },
+  {
+    "index": 189,
+    "name": "Search CTR",
+    "id": "search_ctr",
+    "definition": "Measures click-through rate from search results to the GBP listing. Higher CTR signals relevance and attractiveness to users for the queries being served.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "click-through rate",
+      "SERP engagement"
+    ],
+    "category": "Behavioral Validation & User Interaction",
+    "category_index": 11,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 190,
+    "name": "Direction Requests",
+    "id": "direction_requests",
+    "definition": "Tracks the volume of direction/navigation requests through the GBP listing. High direction request volume signals genuine local demand and physical visit intent.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "navigation requests",
+      "maps interactions"
+    ],
+    "category": "Behavioral Validation & User Interaction",
+    "category_index": 11,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 191,
+    "name": "Booking Conversion",
+    "id": "booking_conversion",
+    "definition": "Measures conversion rates through GBP booking or appointment features. Active booking usage signals a business that invests in the Google ecosystem.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "appointment bookings",
+      "GBP conversions"
+    ],
+    "category": "Behavioral Validation & User Interaction",
+    "category_index": 11,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 192,
+    "name": "Query Deserves Freshness",
+    "id": "temporal_freshness",
+    "definition": "Evaluates content recency and update velocity. Static sites miss opportunities to align with seasonal search trends and lose temporal relevance signals. Sites that remain static during peak demand periods lose current relevance signals. Content calendars, timely blog posts, and updated imagery maintain temporal authority.",
+    "appears_in": [
+      "DriftOS",
+      "PageOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "QDF",
+      "temporal relevance",
+      "freshness"
+    ],
+    "category": "Temporal Dynamics & Stability",
+    "category_index": 12,
+    "tier": "deep",
+    "method": "gemini_ground"
+  },
+  {
+    "index": 193,
+    "name": "Update Velocity",
+    "id": "update_velocity",
+    "definition": "Measures how frequently the site publishes new content or updates existing pages. Active publishing signals ongoing investment and relevance. Static sites gradually lose temporal authority.",
+    "appears_in": [
+      "DriftOS",
+      "PageOS",
+      "EntityOS"
+    ],
+    "also_known_as": [
+      "publish frequency",
+      "content cadence"
+    ],
+    "category": "Temporal Dynamics & Stability",
+    "category_index": 12,
+    "tier": "deep",
+    "method": "gemini_ground"
+  },
+  {
+    "index": 194,
+    "name": "Content Rotation",
+    "id": "content_rotation",
+    "definition": "Detects whether testimonials, blog posts, gallery images, or news updates appear regularly. Active content rotation signals an engaged, operating business.",
+    "appears_in": [
+      "DriftOS",
+      "PageOS",
+      "EntityOS"
+    ],
+    "also_known_as": [
+      "content refresh",
+      "update cycle"
+    ],
+    "category": "Temporal Dynamics & Stability",
+    "category_index": 12,
+    "tier": "deep",
+    "method": "gemini_ground"
+  },
+  {
+    "index": 195,
+    "name": "Blog Post Recency",
+    "id": "blog_post_recency",
+    "definition": "Tracks how recently informational or blog content has been published. Stale blogs with the last post months or years ago signal abandonment to both users and search systems.",
+    "appears_in": [
+      "DriftOS",
+      "PageOS",
+      "EntityOS"
+    ],
+    "also_known_as": [
+      "blog freshness",
+      "last published"
+    ],
+    "category": "Temporal Dynamics & Stability",
+    "category_index": 12,
+    "tier": "deep",
+    "method": "gemini_ground"
+  },
+  {
+    "index": 196,
+    "name": "Stale Internal Links",
+    "id": "stale_internal_links",
+    "definition": "Detects links pointing to outdated, removed, or inactive pages within the site. Broken internal links signal maintenance neglect and degrade crawl efficiency.",
+    "appears_in": [
+      "PageOS"
+    ],
+    "also_known_as": [
+      "broken links",
+      "dead link detection"
+    ],
+    "category": "Temporal Dynamics & Stability",
+    "category_index": 12,
+    "tier": "static",
+    "method": "html_parse"
+  },
+  {
+    "index": 197,
+    "name": "Review Momentum",
+    "id": "review_momentum",
+    "definition": "Measures the ongoing flow and velocity of reviews over time. Distinguishes 'Fading Giants' (old reviews, decelerating momentum) from 'Rising Stars' (recent activity, accelerating reviews).",
+    "appears_in": [
+      "EntityOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "review velocity",
+      "review consistency",
+      "reviews per month"
+    ],
+    "category": "Temporal Dynamics & Stability",
+    "category_index": 12,
+    "tier": "deep",
+    "method": "external_data"
+  },
+  {
+    "index": 198,
+    "name": "Quality Trajectory",
+    "id": "quality_trajectory",
+    "definition": "Tracks whether review ratings are improving or declining by comparing recent reviews (last 20) against the lifetime average. Detects 'Service Decay' when recent sentiment is worse than historical.",
+    "appears_in": [
+      "EntityOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "rating trend",
+      "quality direction",
+      "sentiment shift"
+    ],
+    "category": "Temporal Dynamics & Stability",
+    "category_index": 12,
+    "tier": "deep",
+    "method": "gemini_ground"
+  },
+  {
+    "index": 199,
+    "name": "Service Decay Signal",
+    "id": "service_decay_signal",
+    "definition": "Detects declining customer satisfaction patterns in recent reviews compared to historical patterns. A pattern of recent negative reviews after historically positive ones indicates operational problems.",
+    "appears_in": [
+      "EntityOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "satisfaction decline",
+      "service deterioration"
+    ],
+    "category": "Temporal Dynamics & Stability",
+    "category_index": 12,
+    "tier": "deep",
+    "method": "gemini_ground"
+  },
+  {
+    "index": 200,
+    "name": "Business Stability",
+    "id": "business_stability",
+    "definition": "Evaluates the longevity, ownership continuity, and operational consistency of the company. Years in business, domain age, name/address change history, and ownership signals all factor in.",
+    "appears_in": [
+      "EntityOS",
+      "CredentialOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "operational maturity",
+      "company longevity"
+    ],
+    "category": "Temporal Dynamics & Stability",
+    "category_index": 12,
+    "tier": "deep",
+    "method": "gemini_ground"
+  },
+  {
+    "index": 201,
+    "name": "Ownership Changes",
+    "id": "ownership_changes",
+    "definition": "Detects recent name changes, address changes, or management turnover that may indicate business instability or attempts to distance from negative history.",
+    "appears_in": [
+      "EntityOS",
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "name changes",
+      "management turnover"
+    ],
+    "category": "Temporal Dynamics & Stability",
+    "category_index": 12,
+    "tier": "deep",
+    "method": "gemini_ground"
+  },
+  {
+    "index": 202,
+    "name": "Seasonal Stagnation",
+    "id": "seasonal_stagnation",
+    "definition": "Detects year-round generic promotion versus alignment with seasonal demand cycles. Missing the 'current relevance' boost during peak demand periods costs visibility when it matters most.",
+    "appears_in": [
+      "DriftOS"
+    ],
+    "also_known_as": [
+      "seasonal misalignment",
+      "demand cycle gap"
+    ],
+    "category": "Temporal Dynamics & Stability",
+    "category_index": 12,
+    "tier": "deep",
+    "method": "gemini_ground"
+  },
+  {
+    "index": 203,
+    "name": "Post Recency",
+    "id": "post_recency",
+    "definition": "Tracks how recently the entity has published Google Business Profile posts. Regular posting signals an active, engaged business to local ranking systems.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "GBP posting",
+      "listing activity"
+    ],
+    "category": "Temporal Dynamics & Stability",
+    "category_index": 12,
+    "tier": "deep",
+    "method": "gemini_ground"
+  },
+  {
+    "index": 204,
+    "name": "Hours Integrity",
+    "id": "hours_integrity",
+    "definition": "Verifies that business hours listed in GBP are accurate and up to date, including special hours for holidays. Incorrect hours lead to customer frustration and trust signals.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "operating hours accuracy",
+      "schedule reliability"
+    ],
+    "category": "Temporal Dynamics & Stability",
+    "category_index": 12,
+    "tier": "deep",
+    "method": "gemini_ground"
+  },
+  {
+    "index": 205,
+    "name": "Q&A Freshness",
+    "id": "q_and_a_freshness",
+    "definition": "Evaluates the quality and recency of questions and answers on the GBP listing. Owner-verified answers to genuine questions strengthen the listing's information value.",
+    "appears_in": [
+      "GBPOS"
+    ],
+    "also_known_as": [
+      "questions and answers",
+      "Q&A engagement"
+    ],
+    "category": "Temporal Dynamics & Stability",
+    "category_index": 12,
+    "tier": "deep",
+    "method": "gemini_ground"
+  }
+]
