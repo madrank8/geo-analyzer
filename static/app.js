@@ -303,11 +303,90 @@ function renderResults(data, analysisId) {
         </div>
 
         <div class="report-buttons">
-            <a href="/api/geo/report/${analysisId}/md" class="btn btn-outline btn-sm">Download Markdown</a>
-            <a href="/api/geo/report/${analysisId}/pdf" class="btn btn-outline btn-sm">Download PDF</a>
+            <button class="btn btn-outline btn-sm" id="dl-md-btn">Download Markdown</button>
+            <button class="btn btn-outline btn-sm" id="dl-pdf-btn">Download PDF</button>
             <button class="btn btn-outline btn-sm" onclick="window.location.hash='#/'">Back to Dashboard</button>
         </div>
     `;
+
+    document.getElementById('dl-md-btn').addEventListener('click', () => downloadMarkdown(data));
+    document.getElementById('dl-pdf-btn').addEventListener('click', () => window.print());
+}
+
+// ── Client-side Report Generation ──
+
+function generateMarkdown(data) {
+    const scores = data.scores || {};
+    const findings = data.findings || [];
+    const plan = data.action_plan || {};
+    const platforms = data.platforms || {};
+    const labels = {
+        ai_citability: 'AI Citability', brand_authority: 'Brand Authority',
+        content_eeat: 'Content & E-E-A-T', technical: 'Technical',
+        schema: 'Structured Data', platform_optimization: 'Platform Optimization',
+    };
+
+    let md = `# GEO Analysis Report\n\n`;
+    md += `**URL:** ${data.url}\n`;
+    md += `**Brand:** ${data.brand_name || 'N/A'}\n`;
+    md += `**Date:** ${data.date}\n`;
+    md += `**Business Type:** ${data.business_type?.type || 'unknown'}\n`;
+    md += `**GEO Score:** ${data.geo_score || 0}/100 (${data.label || ''})\n\n`;
+
+    md += `## Dimension Scores\n\n`;
+    md += `| Dimension | Score |\n|---|---|\n`;
+    for (const [key, label] of Object.entries(labels)) {
+        md += `| ${label} | ${scores[key] || 0} |\n`;
+    }
+
+    if (Object.keys(platforms).length) {
+        md += `\n## AI Platform Readiness\n\n`;
+        md += `| Platform | Score |\n|---|---|\n`;
+        for (const [name, score] of Object.entries(platforms)) {
+            md += `| ${name} | ${score} |\n`;
+        }
+    }
+
+    if (findings.length) {
+        md += `\n## Key Findings\n\n`;
+        findings.forEach(f => {
+            md += `- **[${f.severity}]** ${f.title}`;
+            if (f.description) md += ` — ${f.description}`;
+            md += `\n`;
+        });
+    }
+
+    if (plan.quick_wins?.length) {
+        md += `\n## Action Plan\n\n### Quick Wins\n`;
+        plan.quick_wins.forEach((w, i) => { md += `${i+1}. ${typeof w === 'string' ? w : w.action}\n`; });
+    }
+    if (plan.medium_term?.length) {
+        md += `\n### Medium-Term\n`;
+        plan.medium_term.forEach((w, i) => { md += `${i+1}. ${typeof w === 'string' ? w : w.action}\n`; });
+    }
+    if (plan.strategic?.length) {
+        md += `\n### Strategic\n`;
+        plan.strategic.forEach((w, i) => { md += `${i+1}. ${typeof w === 'string' ? w : w.action}\n`; });
+    }
+
+    if (data.veto_result) {
+        md += `\n## Trust Certification\n\n`;
+        md += `**Status:** ${data.veto_result.certification_status || 'N/A'}\n`;
+        if (data.veto_result.certification_reason) md += `${data.veto_result.certification_reason}\n`;
+    }
+
+    return md;
+}
+
+function downloadMarkdown(data) {
+    const md = generateMarkdown(data);
+    const blob = new Blob([md], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `geo-report-${data.brand_name || 'analysis'}.md`;
+    a.click();
+    URL.revokeObjectURL(url);
 }
 
 // ── Router ──
